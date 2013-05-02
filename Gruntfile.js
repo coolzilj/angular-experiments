@@ -44,14 +44,19 @@ module.exports = function (grunt) {
         tasks: ['livereload']
       }
     },
-    connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost'
+    express: {
+      custom: {
+        options: {
+          port: 9000,
+          bases: [path.resolve('app'), path.resolve('.tmp')],
+          monitor: {},
+          debug: true,
+          server: path.resolve('./app/server')
+        }
       },
       livereload: {
         options: {
+          port: 1234,
           middleware: function (connect) {
             return [
               lrSnippet,
@@ -258,17 +263,6 @@ module.exports = function (grunt) {
           ]
         }]
       }
-    },
-    express: {
-      custom: {
-        options: {
-          port: 9001,
-          bases: [path.resolve('app'), path.resolve('.tmp')],
-          monitor: {},
-          debug: true,
-          server: path.resolve('./app/server')
-        }
-      }
     }
   });
 
@@ -279,7 +273,7 @@ module.exports = function (grunt) {
     'coffee:dist',
     'compass:server',
     'livereload-start',
-    'connect:livereload',
+    'express:livereload',
     'express:custom',
     'open',
     'watch'
@@ -289,7 +283,7 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee',
     'compass',
-    'connect:test',
+    'express:test',
     'karma'
   ]);
 
