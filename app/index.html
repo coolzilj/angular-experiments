@@ -28,7 +28,17 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    <div class="navbar navbar-static-top" ng-controller="NavbarCtrl">
+      <div class="navbar-inner">
+        <a class="brand" href="#">AngularJS Experiments</a>
+        <ul class="nav">
+          <li ng-repeat="link in links">
+            <a ng-href="{{link.href}}">{{link.text}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div ng-view></div>
 
     <script src="components/socket.io-client/dist/socket.io.js"></script>
     <script src="components/jquery/jquery.js"></script>
@@ -48,6 +58,8 @@
     <script src="scripts/controllers/board.js"></script>
     <script src="components/angular-socket-io/socket.js"></script>
     <script src="scripts/directives/stickyNote.js"></script>
+    <script src="scripts/controllers/accordion.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

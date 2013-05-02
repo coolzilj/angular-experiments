@@ -15,6 +15,10 @@ angular.module('justfortheangularbookApp', ['btford.socket-io'])
         templateUrl: 'views/board.html',
         controller: 'BoardCtrl'
       })
+      .when('/accordion', {
+        templateUrl: 'views/accordion.html',
+        controller: 'AccordionCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
