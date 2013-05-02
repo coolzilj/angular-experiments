@@ -68,6 +68,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
+          port: 2345,
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),

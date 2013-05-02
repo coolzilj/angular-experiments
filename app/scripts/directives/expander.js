@@ -19,7 +19,7 @@ angular.module('justfortheangularbookApp')
         scope.toggle = function() {
           scope.showMe = !scope.showMe;
           accordionController.gotOpened(scope);
-        }
+        };
       }
     };
   });

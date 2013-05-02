@@ -2,7 +2,7 @@
 
 angular.module('justfortheangularbookApp')
   .directive('stickyNote', ['socket', function (socket) {
-    var linker = function(scope, element, attrs) {
+    var linker = function(scope, element) {
       element.draggable({
         stop: function(event, ui) {
           socket.emit('moveNote', {

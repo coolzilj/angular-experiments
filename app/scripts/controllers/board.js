@@ -36,9 +36,11 @@ angular.module('justfortheangularbookApp')
       newNotes = [];
 
       angular.forEach(oldNotes, function(note) {
-        if(note.id !== id) newNotes.push(note);
+        if(note.id !== id) {
+          newNotes.push(note);
+        }
       });
 
       $scope.notes = newNotes;
-    }
+    };
   }]);

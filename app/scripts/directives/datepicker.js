@@ -7,7 +7,7 @@ angular.module('justfortheangularbookApp')
       require: '?ngModel',
       scope: {select: '&'},
       link: function postLink(scope, element, attrs, ngModel) {
-        if (!ngModel) return;
+        if (!ngModel) {return;}
 
         var opts = {};
 
@@ -17,9 +17,9 @@ angular.module('justfortheangularbookApp')
           scope.$apply(function() {
             ngModel.$setViewValue(dateText);
           });
-        }
+        };
 
-        opts.onSelect = function(dateText, picker) {
+        opts.onSelect = function(dateText) {
           updateModel(dateText);
           if(scope.select) {
             scope.$apply(function() {

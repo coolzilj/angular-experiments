@@ -20,7 +20,7 @@ angular.module('justfortheangularbookApp')
 
         this.addExpander = function(expander) {
           expanders.push(expander);
-        }
+        };
       }
-    }
+    };
   });
