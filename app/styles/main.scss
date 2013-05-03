@@ -1,6 +1,10 @@
-@import "custom/overide";
+@import url(http://fonts.googleapis.com/css?family=Lato);
 @import "compass_twitter_bootstrap";
+
+// utils
+@import "custom/rainbow";
 
 // custom styles
 @import "custom/accordion";
 @import "custom/board";
+@import "custom/overide";

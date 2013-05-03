@@ -1,0 +1,33 @@
+// You could set individual variables for each color as well.
+// You would still pass them all as a single argument,
+// or join them into a single variable before passing, as you see fit.
+$rb-red:      #f0b4b4;
+$rb-red:      #f0b4b4;
+$rb-orange:   #f0d2b4;
+$rb-yellow:   #f0f0b4;
+$rb-green:    #b4f0b4;
+$rb-blue:     #b4d2f0;
+$rb-purple:   #d2b4f0;
+$rb-pink:     #f0b4f0;
+$rainbowColors: $rb-red $rb-orange $rb-yellow $rb-green $rb-blue $rb-purple $rb-pink;
+
+// Returns a striped gradient for use anywhere gradients are accepted.
+// - $position: the starting position or angle of the gradient.
+// - $colors: a list of all the colors to be used.
+@function rainbow($position, $colors) {
+  $colors: if(type-of($colors) != 'list', compact($colors), $colors);
+  $gradient: compact();
+  $width: 100% / length($colors);
+
+  @for $i from 1 through length($colors) {
+    $pop: nth($colors,$i);
+    $new: $pop ($width * ($i - 1)), $pop ($width * $i);
+    $gradient: join($gradient, $new, comma);
+  }
+
+  @return linear-gradient($position, $gradient);
+}
+
+.rainbow {
+  @include background-image(rainbow(left, $rainbowColors));
+}
