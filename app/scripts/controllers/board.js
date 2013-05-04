@@ -17,8 +17,9 @@ angular.module('justfortheangularbookApp')
     $scope.createNote = function() {
       var note = {
         id: new Date().getTime(),
-        title: 'New Note',
-        body: 'Pending'
+        title: '爸爸',
+        body: '冰箱有吃的，记得先用微波炉热一下',
+        color: 'yellow'
       };
 
       $scope.notes.push(note);

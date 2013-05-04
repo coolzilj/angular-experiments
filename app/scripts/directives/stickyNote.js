@@ -24,8 +24,8 @@ angular.module('justfortheangularbookApp')
       });
 
       // Some DOM initiation to make it nice
-      element.css('left', '10px');
-      element.css('top', '50px');
+      element.css('left', '490px');
+      element.css('top', '100px');
       element.hide().fadeIn();
     };
 
@@ -36,6 +36,7 @@ angular.module('justfortheangularbookApp')
         if(data.id === $scope.note.id) {
           $scope.note.title = data.title;
           $scope.note.body = data.body;
+          $scope.note.color = data.color;
         }
       });
 

@@ -1,13 +1,18 @@
 <div class="hero-unit">
   <h2>Realtime sticknotes using Socket.io</h2>
 </div>
-<div class="container">
-  <button id="createButton" ng-click="createNote()" class="btn btn-primary pull-right">新增小贴纸</button>
-  <div class="board">
-    <div sticky-note ng-repeat="note in notes" note="note" class="alert alert-block sticky-note" ondelete="deleteNote(id)" ="">
-      <button type="button" class="close" ng-click="deleteNote(note.id)">&times;</button>
-      <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
-      <textarea ng-model="note.body" ng-change="updateNote(note)" class="body">{{note.body}}</textarea>
+<div class="board">
+  <div class="container">
+    <button id="create-button" ng-click="createNote()" class="btn btn-success pull-right">新增小贴纸</button>
   </div>
-</div>
+  <div sticky-note ng-repeat="note in notes" note="note" class="sticky-note {{note.color}}" ondelete="deleteNote(id)">
+    <button type="button" class="close" ng-click="deleteNote(note.id)">&times;</button>
+    <input ng-model="note.title" ng-change="updateNote(note)" type="text" class="title" >
+    <textarea ng-model="note.body" ng-change="updateNote(note)" class="body">{{note.body}}</textarea>
+    <div class="colors">
+      <div class="color purple" ng-click='note.color="purple";updateNote(note);'></div>
+      <div class="color green" ng-click='note.color="green";updateNote(note);'></div>
+      <div class="color yellow" ng-click='note.color="yellow";updateNote(note);'></div>
+    </div>
+  </div>
 </div>
