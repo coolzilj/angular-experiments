@@ -34,7 +34,7 @@
         <a class="brand" href="#">AngularJS Experiments</a>
         <ul class="nav">
           <li ng-repeat="link in links">
-            <a ng-href="{{link.href}}">{{link.text}}</a>
+            <a ng-href="{{link.href}}" ng-bind="link.text"></a>
           </li>
         </ul>
       </div>
