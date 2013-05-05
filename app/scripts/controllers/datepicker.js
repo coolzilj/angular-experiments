@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
+angular.module('angularExperimentsApp')
   .controller('DatepickerCtrl', function ($scope) {
     $scope.currentDate = '';
     $scope.text = '还没有选择任何日子';

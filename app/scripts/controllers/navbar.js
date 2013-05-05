@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
+angular.module('angularExperimentsApp')
   .controller('NavbarCtrl', function ($scope) {
     $scope.links = [
       {text: 'Accordion', href: '#/accordion'},

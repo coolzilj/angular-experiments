@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Directive: datepicker', function () {
-  beforeEach(module('justfortheangularbookApp'));
+  beforeEach(module('angularExperimentsApp'));
 
   var element;
 

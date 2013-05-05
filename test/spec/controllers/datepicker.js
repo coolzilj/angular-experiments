@@ -3,7 +3,7 @@
 describe('Controller: DatepickerCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('justfortheangularbookApp'));
+  beforeEach(module('angularExperimentsApp'));
 
   var DatepickerCtrl,
     scope;

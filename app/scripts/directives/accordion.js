@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
+angular.module('angularExperimentsApp')
   .directive('accordion', function () {
     return {
       restrict: 'E',

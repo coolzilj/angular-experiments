@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Directive: accordion', function () {
-  beforeEach(module('justfortheangularbookApp'));
+  beforeEach(module('angularExperimentsApp'));
 
   var element;
 

@@ -3,7 +3,7 @@
 describe('Controller: AccordionCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('justfortheangularbookApp'));
+  beforeEach(module('angularExperimentsApp'));
 
   var AccordionCtrl,
     scope;

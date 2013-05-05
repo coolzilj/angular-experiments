@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
+angular.module('angularExperimentsApp')
   .controller('AccordionCtrl', function ($scope) {
     $scope.expanders = [
       {'title': 'Title1',

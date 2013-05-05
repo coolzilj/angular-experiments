@@ -1,5 +1,5 @@
 {
-  "name": "justfortheangularbook",
+  "name": "angularExperiments",
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.0.6",
