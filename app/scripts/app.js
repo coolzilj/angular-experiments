@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('justfortheangularbookApp', ['btford.socket-io'])
+angular.module('angularExperimentsApp', ['btford.socket-io', 'ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

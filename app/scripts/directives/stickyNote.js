@@ -1,21 +1,28 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
+angular.module('angularExperimentsApp')
   .directive('stickyNote', ['socket', function (socket) {
     var linker = function(scope, element) {
       element.draggable({
         stop: function(event, ui) {
+          var x = ui.position.left;
+          var y = ui.position.top;
+
           socket.emit('moveNote', {
-            id: scope.note.id,
-            x: ui.position.left,
-            y: ui.position.top
+            id: scope.note._id.$oid,
+            x: x,
+            y: y
           });
+
+          scope.note.x = x;
+          scope.note.y = y;
+          scope.note.update();
         }
       });
 
       socket.on('onNoteMoved', function(data) {
         // Update if the same note
-        if(data.id === scope.note.id) {
+        if(data.id === scope.note._id.$oid) {
           element.animate({
             left: data.x,
             top: data.y
@@ -24,8 +31,8 @@ angular.module('justfortheangularbookApp')
       });
 
       // Some DOM initiation to make it nice
-      element.css('left', '490px');
-      element.css('top', '100px');
+      element.css('left', scope.note.x);
+      element.css('top', scope.note.y);
       element.hide().fadeIn();
     };
 
@@ -33,7 +40,7 @@ angular.module('justfortheangularbookApp')
       // Incoming
       socket.on('onNoteUpdated', function(data) {
         // Update if the same note
-        if(data.id === $scope.note.id) {
+        if(data._id.$oid === $scope.note._id.$oid) {
           $scope.note.title = data.title;
           $scope.note.body = data.body;
           $scope.note.color = data.color;
@@ -43,6 +50,7 @@ angular.module('justfortheangularbookApp')
       // Outgoing
       $scope.updateNote = function(note) {
         socket.emit('updateNote', note);
+        note.update();
       };
 
       $scope.deleteNote = function(id) {

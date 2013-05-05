@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('justfortheangularbookApp')
-  .controller('BoardCtrl', ['$scope', 'socket', function ($scope, socket) {
-    $scope.notes = [];
+angular.module('angularExperimentsApp')
+  .controller('BoardCtrl', ['$scope', 'socket', 'Note', function ($scope, socket, Note) {
+    $scope.notes = Note.query();
 
     // Incoming
     socket.on('onNoteCreated', function(data) {
@@ -16,14 +16,18 @@ angular.module('justfortheangularbookApp')
     // Outgoing
     $scope.createNote = function() {
       var note = {
-        id: new Date().getTime(),
-        title: '爸爸',
-        body: '冰箱有吃的，记得先用微波炉热一下',
-        color: 'yellow'
+        title: '',
+        body: '',
+        color: 'yellow',
+        x: 490,
+        y: 100
       };
 
-      $scope.notes.push(note);
-      socket.emit('createNote', note);
+      Note.save(note, function(data) {
+        note = new Note(data);
+        $scope.notes.push(note);
+        socket.emit('createNote', note);
+      });
     };
 
     $scope.deleteNote = function(id) {
@@ -37,8 +41,11 @@ angular.module('justfortheangularbookApp')
       newNotes = [];
 
       angular.forEach(oldNotes, function(note) {
-        if(note.id !== id) {
+        if(note._id.$oid !== id) {
           newNotes.push(note);
+        } else {
+          note = new Note(note);
+          note.destroy();
         }
       });
 
