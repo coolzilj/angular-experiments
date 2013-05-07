@@ -29,7 +29,7 @@
 
     <!-- Add your site or application content here -->
     <div class="navbar navbar-static-top" ng-controller="NavbarCtrl">
-      <div class="rainbow"></div>
+      <div ng-class="{rainbow: true, active: isLoading}"></div>
       <div class="navbar-inner">
         <a class="brand" href="#">AngularJS Experiments</a>
         <ul class="nav">
@@ -40,6 +40,7 @@
       </div>
     </div>
     <div ng-view></div>
+    <butterbar></butterbar>
 
     <script src="components/socket.io-client/dist/socket.io.js"></script>
     <script src="components/jquery/jquery.js"></script>
@@ -62,6 +63,8 @@
     <script src="scripts/controllers/accordion.js"></script>
     <script src="scripts/controllers/navbar.js"></script>
     <script src="scripts/services/note.js"></script>
+    <script src="scripts/directives/butterbar.js"></script>
+    <script src="scripts/services/MultiNoteLoader.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,3 +1,33 @@
+// Webkit
+@-webkit-keyframes rainbow-dance {
+  from  { background-position: 500px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Firefox
+@-moz-keyframes rainbow-dance {
+  from  { background-position: 500px 0; }
+  to    { background-position: 0 0; }
+}
+
+// IE9
+@-ms-keyframes rainbow-dance {
+  from  { background-position: 500px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Opera
+@-o-keyframes rainbow-dance {
+  from  { background-position: 0 0; }
+  to    { background-position: 500px 0; }
+}
+
+// Spec
+@keyframes rainbow-dance {
+  from  { background-position: 500px 0; }
+  to    { background-position: 0 0; }
+}
+
 // You could set individual variables for each color as well.
 // You would still pass them all as a single argument,
 // or join them into a single variable before passing, as you see fit.
@@ -30,4 +60,11 @@ $rainbowColors: $rb-red $rb-orange $rb-yellow $rb-green $rb-blue $rb-purple $rb-
 
 .rainbow {
   @include background-image(rainbow(left, $rainbowColors));
+  &.active {
+    -webkit-animation: rainbow-dance 1s linear infinite;
+       -moz-animation: rainbow-dance 1s linear infinite;
+        -ms-animation: rainbow-dance 1s linear infinite;
+         -o-animation: rainbow-dance 1s linear infinite;
+            animation: rainbow-dance 1s linear infinite;
+  }
 }

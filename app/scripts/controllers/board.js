@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('angularExperimentsApp')
-  .controller('BoardCtrl', ['$scope', 'socket', 'Note', function ($scope, socket, Note) {
-    $scope.notes = Note.query();
+  .controller('BoardCtrl', ['$scope', 'socket', 'Note', 'notes', function ($scope, socket, Note, notes) {
+    $scope.notes = notes;
 
     // Incoming
     socket.on('onNoteCreated', function(data) {

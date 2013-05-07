@@ -12,10 +12,20 @@ angular.module('angularExperimentsApp', ['btford.socket-io', 'ngResource'])
         controller: 'DatepickerCtrl'
       })
       .when('/board', {
+        resolve: {
+          notes: function (MultiNoteLoader) {
+            return MultiNoteLoader();
+          }
+        },
         templateUrl: 'views/board.html',
         controller: 'BoardCtrl'
       })
       .when('/accordion', {
+        resolve: {
+          notes: function (MultiNoteLoader) {
+            return MultiNoteLoader();
+          }
+        },
         templateUrl: 'views/accordion.html',
         controller: 'AccordionCtrl'
       })
