@@ -1,12 +1,32 @@
+$yellow: #ffe691;
+$purple: #DD9AFF;
+$green: #99FFB1;
+
 .expander {
   border: 1px solid #eee;
-  background-color: #f9f9f9;
-
+  width: 300px;
+  &.yellow {
+    .title {
+      border-left-color: $yellow;
+    }
+  }
+  &.purple {
+    .title {
+      border-left-color: $purple;
+    }
+  }
+  &.green {
+    .title {
+      border-left-color: $green;
+    }
+  }
   .title {
     padding: 20px;
+    border-left: 5px solid #000;
     cursor: pointer;
+    background-color: #fff;
     &:hover {
-      background-color: #eee;
+      @include opacity(0.8);
     }
   }
 

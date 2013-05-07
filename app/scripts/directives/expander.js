@@ -7,8 +7,11 @@ angular.module('angularExperimentsApp')
       replace: true,
       transclude: true,
       require: '^?accordion',
-      scope: {title: '=expanderTitle'},
-      template: '<div>' +
+      scope: {
+        title: '=expanderTitle',
+        color: '=expanderColor'
+      },
+      template: '<div class="{{color}}">' +
                   '<div class="title" ng-click="toggle()">{{title}}</div>' +
                   '<div class="body" ng-show="showMe" ng-transclude></div>' +
                 '</div>',
