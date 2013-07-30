@@ -5,7 +5,7 @@ You wanna learn the awesome AngularJS? Take a look at these experiments I made.
 
 
 ## Screenshots
-![Realtime Collaboard using Socket.io](https://raw.github.com/coolzilj/angular-experiments/master/screenshots/Collaboard.png)
+![Realtime Collaboard using Socket.io](https://raw.github.com/coolzilj/angular-experiments/master/screenshots/Collaboard.jpg)
 
 ## How to start?
 
