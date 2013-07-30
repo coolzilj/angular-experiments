@@ -3,6 +3,10 @@ angular-experiments
 
 You wanna learn the awesome AngularJS? Take a look at these experiments I made.
 
+
+## Screenshots
+![Realtime Collaboard using Socket.io](https://raw.github.com/coolzilj/angular-experiments/master/screenshots/Collaboard.png)
+
 ## How to start?
 
 1. `git clone git@github.com:coolzilj/angular-experiments.git`
